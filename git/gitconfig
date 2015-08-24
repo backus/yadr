@@ -12,6 +12,7 @@
   old = red
   new = green
 [alias]
+  squash = "!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"
   # add
   a = add                           # add
   chunkyadd = add --patch           # stage commits chunk by chunk
