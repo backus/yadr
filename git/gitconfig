@@ -113,8 +113,8 @@
   default = upstream
 [core]
   autocrlf = false
-  editor = vim
-  excludesfile = ~/.yadr/git/gitignore
+  editor = subl2 -w
+	excludesfile = /Users/johnbackus/.gitignore-global
 [advice]
   statusHints = false
 [diff]
