@@ -50,7 +50,10 @@ begin
   require 'awesome_print'
   # The following line enables awesome_print for all pry output,
   # and it also enables paging
-  Pry.config.print = proc {|output, value| Pry::Helpers::BaseHelpers.stagger_output("=> #{value.ai}", output)}
+  Pry.config.print = proc do |output, value| 
+    output_value = value.ai rescue value.inspect
+    Pry::Helpers::BaseHelpers.stagger_output("=> #{output_value}", output)
+  end
 
   # If you want awesome_print without automatic pagination, use the line below
   # Pry.config.print = proc { |output, value| output.puts value.ai }
