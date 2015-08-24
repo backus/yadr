@@ -68,6 +68,18 @@ default_command_set = Pry::CommandSet.new do
      IO.popen('pbcopy', 'w') { |f| f << str.to_s }
   end
 
+  command 'show-sql', "Show ActiveRecord SQL queries" do
+    ActiveRecord::Base.logger = Logger.new(STDOUT)
+  end
+
+  command 'hide-sql', "Show ActiveRecord SQL queries" do
+    ActiveRecord::Base.logger = nil
+  end
+
+  command 'show-solr', "Show SOLR queries" do
+    require "sunspot/rails/solr_logging"
+  end
+
   command "clear" do
     system 'clear'
     if ENV['RAILS_ENV']
