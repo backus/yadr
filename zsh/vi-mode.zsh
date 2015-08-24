@@ -1,3 +1,2 @@
-set -o vi
-export EDITOR=vim
-export VISUAL=vim
+export EDITOR='subl2 -n -w'
+export VISUAL='subl2 -n -w'
