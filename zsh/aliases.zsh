@@ -12,6 +12,9 @@ elif [[ $unamestr == 'Darwin' ]]; then
   platform='darwin'
 fi
 
+# Node Webkit
+alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
+
 # YADR support
 alias yav='yadr vim-add-plugin'
 alias ydv='yadr vim-delete-plugin'
@@ -48,9 +51,10 @@ TRAPHUP() {
   source $yadr/zsh/aliases.zsh
 }
 
-alias ae='vim $yadr/zsh/aliases.zsh' #alias edit
+alias ae='subl2 $yadr/zsh/aliases.zsh' #alias edit
 alias ar='source $yadr/zsh/aliases.zsh'  #alias reload
 alias gar="killall -HUP -u \"$USER\" zsh"  #global alias reload
+alias aliases='cat $yadr/zsh/aliases.zsh ~/.aliases'
 
 # vim using
 mvim --version > /dev/null 2>&1
@@ -63,13 +67,16 @@ fi
 alias :q='exit'
 
 # vimrc editing
-alias ve='vim ~/.vimrc'
+alias ve='subl2 ~/.vimrc'
 
 # zsh profile editing
-alias ze='vim ~/.zshrc'
+alias ze='subl2 ~/.zshrc'
 alias zr='source ~/.zshrc'
 
 # Git Aliases
+alias clone='git clone'
+alias gch='git checkout HEAD -- '
+alias cl='git clone'
 alias gs='git status'
 alias gstsh='git stash'
 alias gst='git stash'
@@ -78,7 +85,7 @@ alias gsa='git stash apply'
 alias gsh='git show'
 alias gshw='git show'
 alias gshow='git show'
-alias gi='vim .gitignore'
+alias gi='subl2 .gitignore'
 alias gcm='git ci -m'
 alias gcim='git ci -m'
 alias gci='git ci'
@@ -142,15 +149,13 @@ alias gz='tar -zcvf'
 
 # Ruby
 alias c='rails c' # Rails 3
-alias co='script/console' # Rails 2
-alias cod='script/console --debugger'
-
-#If you want your thin to listen on a port for local VM development
-#export VM_IP=10.0.0.1 <-- your vm ip
-alias ts='thin start -a ${VM_IP:-127.0.0.1}'
 alias ms='mongrel_rails start'
 alias tfdl='tail -f log/development.log'
 alias tftl='tail -f log/test.log'
+alias brc='bin/rails c'
+alias brs='bin/rails s'
+alias br='bin/rake'
+alias brr='bin/rake routes'
 
 alias ka9='killall -9'
 alias k9='kill -9'
@@ -168,6 +173,8 @@ alias portforward='sudo ipfw add 1000 forward 127.0.0.1,3000 ip from any to any 
 
 alias rdm='rake db:migrate'
 alias rdmr='rake db:migrate:redo'
+
+alias bi="bundle install -j4"
 
 # Zeus
 alias zs='zeus server'
