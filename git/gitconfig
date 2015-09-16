@@ -52,6 +52,7 @@
   short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
   simple = log --pretty=format:\" * %s\"
   shortnocolor = log --pretty=format:\"%h %cr %cn %s\"
+  commits = log --pretty=fuller
 
   # pull
   pl = pull                         # pull
